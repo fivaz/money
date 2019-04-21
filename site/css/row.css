@@ -1,0 +1,10 @@
+.row{
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.row-main{
+    flex: 1;
+    display: flex;
+    padding: 7px;
+}

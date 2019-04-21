@@ -1,0 +1,61 @@
+.my-modal {
+
+    border: 1px solid black;
+    background-color: white;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    padding: 1rem;
+    min-width: 20em;
+}
+
+.footer-button {
+
+    left: 90%;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    margin-bottom: 10px;
+    transform: translate(-100%);
+}
+
+.f-1 {
+    flex: 1;
+}
+
+.f-2 {
+    flex: 2;
+}
+
+.f-3 {
+    flex: 3;
+}
+
+.f-4 {
+    flex: 4;
+}
+
+.f-5 {
+    flex: 5;
+}
+
+.f-6 {
+    flex: 6;
+}
+
+.f-7 {
+    flex: 7;
+}
+
+.f-8 {
+    flex: 8;
+}
+
+.f-9 {
+    flex: 9;
+}
+
+.f-10 {
+    flex: 10;
+}
