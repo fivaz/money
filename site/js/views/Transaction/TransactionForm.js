@@ -35,7 +35,7 @@ class TransactionForm extends View {
             footer: $$("<footer>"),
             btnSubmit: $$("<button>")
         };
-        /*declaring classes*/
+        //declaring classes
         template.form.className = "my-modal";
 
         template.header.className = "d-flex align-items-start";
@@ -65,7 +65,7 @@ class TransactionForm extends View {
 
         template.btnSubmit.className = "btn-submit btn-lg btn-block btn-success d-block m-auto";
 
-        /*declaring texts and types*/
+        //declaring texts and types
         template.btnClose.textContent = "X";
         template.lblDescription.textContent = "description";
         template.lblType.textContent = "type";
@@ -77,9 +77,9 @@ class TransactionForm extends View {
 
         template.iptDate.type = "date";
 
-        template.slcAccountDestiny.disabled = (template.slcType.value !== "transfer");
+        template.slcAccountDestiny.disabled = true;
 
-        /*declaring specials*/
+        //declaring specials
         ["spending", "income", "transfer"].forEach((type, key) =>
             template.slcType[key] = new Option(type, type));
 
@@ -89,7 +89,7 @@ class TransactionForm extends View {
         template.btnClose.addEventListener("click", () =>
             template.form.parentElement.removeChild(template.form));
 
-        /*appending to the DOM*/
+        //appending to the DOM
         document.body.appendChild(template.form);
 
         template.form.appendChild(template.header);

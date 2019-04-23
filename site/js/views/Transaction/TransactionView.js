@@ -45,6 +45,8 @@ class TransactionView extends RowView {
         ["spending", "income", "transfer"].forEach((type, key) =>
             template.slcType[key] = new Option(type, type, null, type === this.model.type));
 
+        template.slcAccountDestiny.disabled = (template.slcType.value !== "transfer");
+
         accounts.forEach((account, key) => {
             template.slcAccountOrigin[key] = new Option(account.name, account.id, false,
                 account.id === this.model.account_origin_id);
