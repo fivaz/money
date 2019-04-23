@@ -10,28 +10,30 @@ class Account extends ORM
 {
     public function __construct()
     {
-        $this->table = "money_account";
-        $this->view = "money_view_account";
+        $this->table = "account";
+        $this->view = "view_account";
         parent::__construct();
     }
 
-    public function getAll($column = null, $account_id = null)
+    public function get($id, $forceTable = false)
     {
-        $query = "SELECT * FROM {$this->view}";
-        if ($column)
-            $query .= " WHERE {$column} = ?";
+        if (parent::get($id, $forceTable)) {
+            //TODO insert the right balance
+            if (!$forceTable)
+                $this->setAttr("balance", 0);
+            return $this;
+        } else
+            return null;
+    }
 
-        $statement = $this->db->prepare($query);
-        $statement->execute([$account_id]);
-
-        $accounts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        $newAccounts = [];
-        foreach ($accounts as $account) {
+    public function getAll($column = null, $user_id = null)
+    {
+        $accounts = [];
+        foreach (parent::getAll($column, $user_id) as $account) {
             $account["balance"] = self::getBalance($account["id"]);
-            array_push($newAccounts, $account);
+            array_push($accounts, $account);
         }
-        return $newAccounts;
+        return $accounts;
     }
 
     private static function getBalance($id)

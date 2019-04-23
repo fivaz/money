@@ -3,7 +3,7 @@ class Account extends Parent {
     constructor(...args) {
         super();
         this._name = args[0] || null;
-
+        this._user_id = args[1] || null;
         this._id = args[2] || null;
         this._balance = args[3] || null;
         this._transactions = [];
@@ -23,6 +23,14 @@ class Account extends Parent {
 
     set name(value) {
         this._name = value;
+    }
+
+    get user_id() {
+        return this._user_id;
+    }
+
+    set user_id(value) {
+        this._user_id = value;
     }
 
     get balance() {

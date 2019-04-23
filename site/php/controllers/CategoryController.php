@@ -6,14 +6,10 @@
  * Time: 15:46
  */
 
-class CategoryController implements Controller
+class CategoryController
 {
-    static function findAll()
+    static function index()
     {
         require("site/php/views/categories.php");
-    }
-
-    static function find($params)
-    {
     }
 }

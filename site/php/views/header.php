@@ -13,7 +13,7 @@
 
     <meta charset="UTF-8">
     <title>Money</title>
-    <base href="/money/">
+    <base href="<?=DIR?>">
 
     <script src="site/js/builders/PageBuilder.js"></script>
     <script src="site/js/builders/HomePageBuilder.js"></script>
@@ -45,9 +45,10 @@
     <script src="site/js/views/Category/CategoryRowView.js"></script>
     <script src="site/js/views/CategoriesPageView.js"></script>
 
-    <script src="site/js/models/Model.js"></script>
+    <script src="site/js/models/ORM.js"></script>
     <script src="site/js/models/Parent.js"></script>
     <script src="site/js/models/Home.js"></script>
+    <script src="site/js/models/User.js"></script>
     <script src="site/js/models/Account.js"></script>
     <script src="site/js/models/Transaction.js"></script>
     <script src="site/js/models/Categories.js"></script>
@@ -72,26 +73,8 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="">Money</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="">Accounts</a>
-            <a class="nav-item nav-link" href="/money/categories">Categories</a>
-        </div>
-    </div>
-</nav>
-
-<div class="container">
-
-    <input type="hidden" class="ajax" value="nothing">

@@ -10,8 +10,8 @@ class Category extends ORM
 {
     public function __construct()
     {
-        $this->table = "money_category";
-        $this->view = "money_view_category";
+        $this->table = "category";
+        $this->view = "view_category";
         parent::__construct();
     }
 }

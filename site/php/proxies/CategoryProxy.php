@@ -13,9 +13,25 @@ class CategoryProxy extends Proxy
         $this->model = new Category();
     }
 
-    function delete($json)
+    function select($json = null)
     {
+        $elements = $this->model->getAll("user_id", Auth::id());
+        return json_encode($elements);
+    }
+
+    function insert($json)
+    {
+        //TODO try to use parent here
         $this->model->fromJSON($json);
+        $this->model->setAttr("user_id", Auth::id());
+        echo $this->model->create();
+        return $this->model->toJSON();
+    }
+
+    function delete($json)
+    {//TODO try to use parent here
+        $this->model->fromJSON($json);
+        $this->model->setAttr("user_id", Auth::id());
         return $this->model->softDelete();
     }
 }

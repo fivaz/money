@@ -22,8 +22,7 @@ class Proxy
     function insert($json)
     {
         $this->model->fromJSON($json);
-        $this->model->create();
-
+        echo $this->model->create();
         return $this->model->toJSON();
     }
 

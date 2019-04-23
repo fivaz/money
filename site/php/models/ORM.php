@@ -82,6 +82,8 @@ class ORM
     public function fromJSON($json)
     {
         $assoc_array = json_decode($json, true);
+        if (isset($assoc_array['_id']))
+            $this->get($assoc_array['_id'], true);
         foreach ($this->attributes as $key => $value)
             if (isset($assoc_array['_' . $key]))
                 $this->setAttr($key, $assoc_array['_' . $key]);
@@ -111,13 +113,16 @@ class ORM
             $id = $this->db->lastInsertId();
             $this->get($id);
         } else
-            return $statement->errorInfo();
+            return $statement->errorInfo()[2];
     }
 
     //READ
-    public function get($id)
+    public function get($id, $forceTable = false)
     {
-        $query = "SELECT * FROM {$this->getView()} WHERE {$this->getPK()} = ?";
+        if ($forceTable)
+            $query = "SELECT * FROM {$this->table} WHERE {$this->getPK()} = ?";
+        else
+            $query = "SELECT * FROM {$this->getView()} WHERE {$this->getPK()} = ?";
 
         $statement = $this->db->prepare($query);
         $statement->execute([$id]);
@@ -131,14 +136,14 @@ class ORM
             return null;
     }
 
-    public function getAll($column = null, $account_id = null)
+    public function getAll($column = null, $value = null)
     {
         $query = "SELECT * FROM {$this->getView()}";
         if ($column)
             $query .= " WHERE {$column} = ?";
 
         $statement = $this->db->prepare($query);
-        $statement->execute([$account_id]);
+        $statement->execute([$value]);
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -157,13 +162,11 @@ class ORM
         $result = $statement->execute($data);
 
         //TODO find a better way to perform this if
-        if ($result)
-            return 1;
-        else
-            return $statement->errorInfo();
+        if (!$result)
+            return $statement->errorInfo()[2];
     }
 
-    //DELETE
+//DELETE
     public function delete()
     {
         $columnsAndValues = SQLHelper::buildDelete($this->getPKs());
@@ -186,7 +189,6 @@ class ORM
     public function softDelete()
     {
         $this->setAttr('isArchived', 1);
-
         return $this->save();
     }
 }

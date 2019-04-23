@@ -11,13 +11,18 @@ include_once("db-config.php");
 spl_autoload_register(
     function ($class_name) {
         $directories = glob("site/php/*");
-        foreach ($directories as $directory) {
-            $path = $directory . "/" . $class_name . ".php";
+        $found = false;
+        $index = 0;
+
+        while ($index < count($directories) && !$found) {
+            $path = $directories[$index] . "/" . $class_name . ".php";
             if (file_exists($path)) {
+                $found = true;
                 require_once($path);
-                return;
             }
+            $index++;
         }
-        die("class " . $class_name . " not found");
+        if (!$found)
+            die("class " . $class_name . " not found");
     }
 );

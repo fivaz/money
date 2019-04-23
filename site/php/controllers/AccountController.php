@@ -6,9 +6,14 @@
  * Time: 15:46
  */
 
-class AccountController implements Controller
+class AccountController
 {
-    static function find($params = null)
+    static function index()
+    {
+        require("site/php/views/accounts.php");
+    }
+
+    static function get($params = null)
     {
         $accountORM = new Account();
 
@@ -23,10 +28,5 @@ class AccountController implements Controller
         $categories = json_encode($category->getAll());
 
         require("site/php/views/account.php");
-    }
-
-    static function findAll()
-    {
-        require("site/php/views/home.php");
     }
 }

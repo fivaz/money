@@ -1,4 +1,4 @@
-class Parent extends Model {
+class Parent extends ORM {
 
     constructor() {
         super();

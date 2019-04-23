@@ -1,10 +1,10 @@
-class Category extends Model{
+class Category extends ORM{
 
     constructor(...args) {
         super();
         this._name = args[0];
-
-        this._id = args[1];
+        this._user_id = args[1];
+        this._id = args[2];
     }
 
     get id() {
@@ -13,6 +13,14 @@ class Category extends Model{
 
     set id(value) {
         this._id = value;
+    }
+
+    get user_id() {
+        return this._user_id;
+    }
+
+    set user_id(value) {
+        this._user_id = value;
     }
 
     get name() {

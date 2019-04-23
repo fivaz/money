@@ -1,4 +1,4 @@
-class Transaction extends Model {
+class Transaction extends ORM {
 
     constructor(...args) {
         super();
@@ -9,10 +9,8 @@ class Transaction extends Model {
         this._account_origin_id = args[4] || null;
         this._account_destiny_id = args[5] || null;
         this._category_id = args[6] || null;
-
         this._id = args[7] || null;
         this._category = args[8] || null;
-
         this._filtered = false;
     }
 

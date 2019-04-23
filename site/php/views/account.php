@@ -9,6 +9,8 @@
 
 <?php include_once("header.php") ?>
 
+<?php require("navbar.php") ?>
+
 <script>
     const accounts = (<?=$accounts?>);
     const categories = (<?=$categories?>);

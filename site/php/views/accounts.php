@@ -7,10 +7,10 @@
  */
 ?>
 
-<?php include_once("header.php") ?>
+<?php require("header.php") ?>
 
 <?php require("navbar.php") ?>
 
-<script>CategoriesPageBuilder.build()</script>
+    <script>HomePageBuilder.build()</script>
 
-<?php include_once("footer.php") ?>
+<?php require("footer.php") ?>

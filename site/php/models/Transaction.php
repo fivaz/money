@@ -10,19 +10,31 @@ class Transaction extends ORM
 {
     public function __construct()
     {
-        $this->table = "money_transaction";
+        $this->table = "transaction";
         parent::__construct();
     }
 
-    public function getAll($column = null, $account_id = null)
+    public function getAll($column = null, $value = null)
     {
-        $query = "SELECT * FROM money_transaction WHERE 
+        $query = "SELECT * FROM {$this->table} WHERE 
         (account_destiny_id = ? AND type = 'transfer') OR account_origin_id = ?";
 
         $statement = $this->db->prepare($query);
 
-        $statement->execute(array($account_id, $account_id));
+        $statement->execute([$value, $value]);
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function fromJSON($json)
+    {
+        $assoc_array = json_decode($json, true);
+        $this->get($assoc_array['_id'], true);
+        foreach ($this->attributes as $key => $value)
+            if (isset($assoc_array['_' . $key])) {
+                if ($assoc_array['_date'])
+                    $assoc_array['_date'] = substr($assoc_array['_date'], 0, 10);
+                $this->setAttr($key, $assoc_array['_' . $key]);
+            }
     }
 }

@@ -20,9 +20,7 @@ class CategoriesPageView extends PageView {
         template.btnSubmit.textContent = "create";
 
         template.btnSubmit.addEventListener("click", () => {
-
             this.emit("create child", template.iptName.value);
-
             template.form.parentElement.removeChild(template.form);
         });
     }

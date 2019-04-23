@@ -7,16 +7,18 @@ class RowView extends View {
             main: $$("<div>"),
             aside: $$("<aside>"),
             btnEdit: $$("<button>"),
-            btnDel: $$("<button>")
+            btnDel: $$("<button>"),
+            icnDel: $$("<i>"),
+            icnEdit: $$("<i>")
         };
 
-        elements.row.className = "row";
+        elements.row.className = "row align-items-center";
         elements.main.className = "row-main";
         elements.aside.className = "row-aside";
         elements.btnEdit.className = "btn-edit btn btn-primary mr-3";
+        elements.icnEdit.className = "fa fa-pencil-square-o";
         elements.btnDel.className = "btn-delete btn btn-danger mr-3";
-        elements.btnEdit.textContent = "edit";
-        elements.btnDel.textContent = "delete";
+        elements.icnDel.className = "fa fa-trash-o";
 
         elements.btnEdit.addEventListener("click", () => this.editTemplate());
         elements.btnDel.addEventListener("click", () => this.confirmDelete());
@@ -24,7 +26,9 @@ class RowView extends View {
         elements.row.appendChild(elements.main);
         elements.row.appendChild(elements.aside);
         elements.aside.appendChild(elements.btnEdit);
+        elements.btnEdit.appendChild(elements.icnEdit);
         elements.aside.appendChild(elements.btnDel);
+        elements.btnDel.appendChild(elements.icnDel);
 
         return elements;
     }

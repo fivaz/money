@@ -24,7 +24,7 @@ class TransactionView extends RowView {
     }
 
     update() {
-        this.elements.row.className = "row clr-" + this.model.type;
+        this.elements.row.className = "row align-items-center clr-" + this.model.type;
 
         this.elements.date.textContent = this.model.dateFormattedFR;
         this.elements.category.textContent = this.model.getCategory();
