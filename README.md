@@ -38,7 +38,7 @@ I created this app to prove to myself I could created a whole app without using 
 * formatDate in European/South American format or English format
 * etc.
 
-**But I do use Bootstrap and FontAwesome**
+***But I do use Bootstrap and FontAwesome***
 
 ### Important
 I have a .htaccess file in this page but I can't upload it on github. Anyway, the code is right below.
