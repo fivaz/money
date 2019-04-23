@@ -22,7 +22,7 @@ class AccountController
             die("No account found with id: " . $id);
 
         $account = $accountORM->toJSON();
-        $accounts = json_encode($accountORM->getAll());
+        $accounts = json_encode($accountORM->getAll("user_id", Auth::id()));
 
         $category = new Category();
         $categories = json_encode($category->getAll("user_id", Auth::id()));
