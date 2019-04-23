@@ -1,7 +1,7 @@
 # Money
 
 ## About
-This app is a app for managing your finances, you can control many accounts and transfer money between them, so it can be used for domestical purposes but also for a big institution.
+This is an app for managing your finances, you can control many accounts and transfer money between them, so it can be used for domestical purposes but also for a big institution.
 
 ## Design Patterns
 In this app I use several design patterns as:
