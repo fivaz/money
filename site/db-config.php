@@ -9,7 +9,7 @@
 define("DB_DRIVE", "mysql");
 define("DB_PORT", "3306");
 define("DB_CHARSET", "utf8");
-//DIR cotains the name of the source directory with a slash like this: source/
+//DIR contains the name of the source directory with a slash like this: source/ or if none /
 define("DIR", substr($_SERVER['SCRIPT_NAME'], 0, strlen($_SERVER['SCRIPT_NAME']) - strlen("routes.php")));
 
 //LOCAL

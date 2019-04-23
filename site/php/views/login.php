@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <script src="site/js/services/signInPerformer.js"></script>
+    <script src="site/js/services/loginPerformer.js"></script>
 
     <?php require("footer.php") ?>
 

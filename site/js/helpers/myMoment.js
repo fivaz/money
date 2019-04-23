@@ -41,5 +41,23 @@ function getFirstDate(year, month) {
     return new Date(year, month, 1);
 }
 
+function getMonthTxt(month) {
+    const months = [
+        "January",
+        "February",
+        "Mars",
+        "April",
+        "May",
+        "June",
+        "Jully",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+    return months[month-1];
+}
+
 
 

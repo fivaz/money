@@ -7,7 +7,7 @@ class AccountPageView extends PageView {
     template() {
 
         this.addToNavBar();
-        this.elements = this.pageTemplate();
+        this.elements = this.pageTemplate("New Transaction");
 
         this.elements.header.className = "";
 
@@ -36,13 +36,14 @@ class AccountPageView extends PageView {
         this.elements.fckThisMonth = $$("<div>");
         this.elements.cbxThisMonth = $$("<input>");
         this.elements.lblThisMonth = $$("<label>");
-        this.elements.filtered_balance = $$("<h2>");
+        this.elements.filtered_balance = $$("<h3>");
 
-        this.elements.fckThisMonth.className = "form-check";
+        this.elements.filterBar.className = "filter-bar";
+        this.elements.fckThisMonth.className = "form-check d-flex justify-content-between";
         this.elements.cbxThisMonth.className = "form-check-input";
         this.elements.lblThisMonth.className = "form-check-label";
 
-        this.elements.lblThisMonth.textContent = "this month only";
+        this.elements.lblThisMonth.textContent = "This month only";
         this.elements.lblThisMonth.for = "thisMonth";
         this.elements.cbxThisMonth.for = "thisMonth";
         this.elements.cbxThisMonth.type = "checkbox";
@@ -52,9 +53,9 @@ class AccountPageView extends PageView {
 
         this.elements.header.appendChild(this.elements.filterBar);
         this.elements.filterBar.appendChild(this.elements.fckThisMonth);
-        this.elements.filterBar.appendChild(this.elements.cbxThisMonth);
-        this.elements.filterBar.appendChild(this.elements.lblThisMonth);
-        this.elements.filterBar.appendChild(this.elements.filtered_balance);
+        this.elements.fckThisMonth.appendChild(this.elements.cbxThisMonth);
+        this.elements.fckThisMonth.appendChild(this.elements.lblThisMonth);
+        this.elements.fckThisMonth.appendChild(this.elements.filtered_balance);
     }
 
     toggleFilter() {

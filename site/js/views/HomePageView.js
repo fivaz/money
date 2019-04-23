@@ -2,7 +2,7 @@ class HomePageView extends PageView {
 
     template() {
 
-        this.elements = this.pageTemplate();
+        this.elements = this.pageTemplate("New Account");
         this.elements.title = $$("<h2>");
         this.elements.total = $$("<h2>");
         this.elements.title.textContent = "Accounts";

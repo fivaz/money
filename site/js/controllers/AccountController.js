@@ -21,7 +21,7 @@ class AccountController extends Controller {
         return TransactionView;
     }
 
-    //TODO ref
+    //TODO put this in the view
     showChildren() {
         this.view.clearAll();
         let previousMonth = 12;
@@ -29,10 +29,8 @@ class AccountController extends Controller {
             if (transaction.filtered === false) {
                 if (previousMonth > transaction.date.getMonth() + 1) {
                     previousMonth = transaction.date.getMonth() + 1;
-
-                    let month = document.createElement("span");
-                    month.textContent = "" + previousMonth;
-
+                    const month = $$("<span>");
+                    month.textContent = getMonthTxt(previousMonth);
                     this.view.elements.main.appendChild(month);
                 }
                 this.view.showChild(this.getChildView(transaction));

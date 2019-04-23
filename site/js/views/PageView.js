@@ -9,7 +9,7 @@ class PageView extends View {
     }
 
     //TODO create a header without d-flex to accept a filter
-    pageTemplate() {
+    pageTemplate(btnNewChildName) {
 
         this.elements = {
             template: $$("<div>"),
@@ -22,7 +22,7 @@ class PageView extends View {
         this.elements.header.className = "d-flex justify-content-between";
         this.elements.btnNew.className = "footer-button btn btn-success";
 
-        this.elements.btnNew.textContent = "new child";
+        this.elements.btnNew.textContent = btnNewChildName;
 
         this.elements.btnNew.addEventListener("click", () => this.createChildTemplate());
 
