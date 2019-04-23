@@ -25,7 +25,7 @@ class AccountController
         $accounts = json_encode($accountORM->getAll());
 
         $category = new Category();
-        $categories = json_encode($category->getAll());
+        $categories = json_encode($category->getAll("user_id", Auth::id()));
 
         require("site/php/views/account.php");
     }
