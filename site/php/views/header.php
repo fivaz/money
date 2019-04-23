@@ -20,7 +20,7 @@
     <script src="site/js/builders/AccountPageBuilder.js"></script>
     <script src="site/js/builders/CategoriesPageBuilder.js"></script>
 
-    <script src="site/js/helpers/dateHelper.js"></script>
+    <script src="site/js/helpers/myMoment.js"></script>
     <script src="site/js/helpers/myJQuery.js"></script>
     <script src="site/js/services/DataSync.js"></script>
     <script src="site/js/services/EventEmitter.js"></script>
